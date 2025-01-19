@@ -27,4 +27,4 @@ jobs:
 
     - name: Run the new Docker container
       run: |
-        docker run -d --name my-website-container -p 8080:80 my-website:${{ github.sha }}  # Start the new container
+        docker run -d --name my-website-container -p 8006:80 my-website:${{ github.sha }}  # Start the new container
