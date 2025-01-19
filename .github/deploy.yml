@@ -18,13 +18,13 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build -t my-website:${{ github.sha }} .  # Build image with a tag using the commit SHA
+        docker build -t majorelle.ca:${{ github.sha }} .  # Build image with a tag using the commit SHA
 
     - name: Stop and remove the old container
       run: |
-        docker stop my-website-container || true  # Stop the existing container if it exists
-        docker rm my-website-container || true  # Remove the existing container
+        docker stop majorelle.ca-container || true  # Stop the existing container if it exists
+        docker rm majorelle.ca-container || true  # Remove the existing container
 
     - name: Run the new Docker container
       run: |
-        docker run -d --name my-website-container -p 8006:80 my-website:${{ github.sha }}  # Start the new container
+        docker run -d --name majorelle.ca -p 8006:80 majorelle.ca:${{ github.sha }}  # Start the new container
