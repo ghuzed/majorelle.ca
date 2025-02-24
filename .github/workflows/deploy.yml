@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  #manual trigger
 
 jobs:
   deploy:
@@ -23,7 +24,7 @@ jobs:
     - name: Stop and remove the old container
       run: |
         docker stop majorelle.ca || true
-        docker rm majorelle.ca|| true
+        docker rm majorelle.ca || true
 
     - name: Run the new Docker container
       run: |
