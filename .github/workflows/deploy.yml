@@ -28,4 +28,4 @@ jobs:
 
     - name: Run the new Docker container
       run: |
-        docker run -d --name majorelle.ca -p 8006:80 majorelle.ca:${{ github.sha }}
+        docker run -d --name majorelle.ca --restart unless-stopped -p 8006:80 majorelle.ca:${{ github.sha }}
